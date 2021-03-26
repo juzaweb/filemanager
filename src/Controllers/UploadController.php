@@ -2,7 +2,7 @@
 
 namespace FileManager\Controllers;
 
-use FileManager\FileManager;
+use FileManager\Facades\FileManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use FileManager\Exceptions\UploadMissingFileException;
@@ -62,8 +62,7 @@ class UploadController extends FileManagerController
         $folder_id = $this->getCurrentDir();
         $type = $this->getCurrentType();
         
-        return (new FileManager())
-            ->setResource($file)
+        return FileManager::setResource($file)
             ->setFolder($folder_id)
             ->setType($type)
             ->save();

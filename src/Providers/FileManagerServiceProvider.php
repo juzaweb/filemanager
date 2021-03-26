@@ -2,6 +2,9 @@
 
 namespace FileManager\Providers;
 
+use FileManager\Contracts\FileManagerContract;
+use FileManager\FileManager;
+use FileManager\Repositories\MediaRepository;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -24,6 +27,10 @@ class FileManagerServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/file-manager.php', 'file-manager'
         );
+    
+        $this->app->singleton(FileManagerContract::class, function () {
+            return new FileManager($this->app->make(MediaRepository::class));
+        });
         
         $this->registerPublishes();
         
