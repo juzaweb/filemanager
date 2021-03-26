@@ -60,18 +60,5 @@ return [
                 'audio/mp3',
             ]
         ],
-    ],
-    'clear' => [
-        /**
-         * How old chunks we should delete
-         */
-        'timestamp' => '-3 HOURS',
-        'schedule' => [
-            'enabled' => true,
-            /**
-             * run every hour on the 25th minute
-             * */
-            'cron' => '25 * * * *',
-        ],
-    ],
+    ]
 ];
