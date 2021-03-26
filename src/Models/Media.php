@@ -16,6 +16,7 @@ class Media extends Model
         'extension',
         'folder_id',
         'user_id',
+        'user_model',
     ];
     
     public function folder() {

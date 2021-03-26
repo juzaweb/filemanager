@@ -2,6 +2,7 @@
 
 namespace FileManager\Repositories;
 
+use Illuminate\Support\Facades\Auth;
 use Lararepo\Repositories\EloquentRepository;
 
 class FolderMediaRepository extends EloquentRepository
@@ -14,6 +15,26 @@ class FolderMediaRepository extends EloquentRepository
     public function model()
     {
         return \FileManager\Models\FolderMedia::class;
+    }
+    
+    public function create(array $attributes)
+    {
+        if (Auth::check()) {
+            $attributes['user_id'] = Auth::id();
+            $attributes['user_model'] = Auth::user()->getTable();
+        }
+        
+        return parent::create($attributes);
+    }
+    
+    public function update($id, array $attributes)
+    {
+        if (Auth::check()) {
+            $attributes['user_id'] = Auth::id();
+            $attributes['user_model'] = Auth::user()->getTable();
+        }
+        
+        return parent::update($id, $attributes);
     }
     
     public function getAllFiles($folder)

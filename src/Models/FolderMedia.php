@@ -9,9 +9,10 @@ class FolderMedia extends Model
     protected $table = 'folder_media';
     protected $fillable = [
         'name',
-        'user_id',
         'type',
         'parent_id',
+        'user_id',
+        'user_model',
     ];
     
     public function parent() {

@@ -11,9 +11,10 @@ class CreateFolderMediaTable extends Migration
         Schema::create('folder_media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->bigInteger('user_id')->index();
             $table->string('type', 50)->index();
-            $table->bigInteger('parent_id')->index()->nullable();
+            $table->unsignedBigInteger('parent_id')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->nullable()->index();
+            $table->string('user_model', 100)->nullable()->index();
             $table->timestamps();
         });
     }
