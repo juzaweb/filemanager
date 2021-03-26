@@ -3,11 +3,11 @@
 namespace FileManager\Config;
 
 /**
- * Class FileConfig.
+ * Class UploadConfig.
  *
  * Enables loading a config settings from the Laravel Config facade.
  */
-class FileConfig extends AbstractConfig
+class UploadConfig extends AbstractConfig
 {
     /**
      * The file name of the config.
@@ -39,7 +39,7 @@ class FileConfig extends AbstractConfig
      *
      * @return string the full path to the storage
      *
-     * @see FileConfig::get()
+     * @see UploadConfig::get()
      */
     public function chunksStorageDirectory()
     {
@@ -51,7 +51,7 @@ class FileConfig extends AbstractConfig
      *
      * @return string
      *
-     * @see FileConfig::get()
+     * @see UploadConfig::get()
      */
     public function clearTimestampString()
     {

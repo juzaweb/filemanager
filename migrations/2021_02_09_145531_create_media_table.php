@@ -16,8 +16,9 @@ class CreateMediaTable extends Migration
             $table->string('extension', 50);
             $table->string('mimetype', 50);
             $table->string('type', 50)->default('image')->index();
-            $table->bigInteger('folder_id')->index()->nullable();
-            $table->bigInteger('user_id')->index();
+            $table->unsignedBigInteger('folder_id')->nullable()->index();
+            $table->unsignedBigInteger('user_id')->nullable()->index();
+            $table->string('user_model', 100)->nullable()->index();
             $table->timestamps();
         });
     }

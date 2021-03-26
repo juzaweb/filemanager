@@ -1,19 +1,25 @@
 <?php
 
-namespace FileManager\Services;
+namespace FileManager;
 
 use Spatie\ImageOptimizer\OptimizerChainFactory;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use FileManager\Repositories\MediaRepository;
 
-class FileUploadService
+class FileManager
 {
     /**
      * @var \Illuminate\Support\Facades\Storage $storage
      * */
     protected $storage;
+    
+    /**
+     * @var MediaRepository $mediaRepository
+     * */
+    protected $mediaRepository;
     
     protected $resource;
     
@@ -25,8 +31,10 @@ class FileUploadService
     
     protected $errors = [];
     
-    public function __construct()
+    public function __construct(MediaRepository $mediaRepository)
     {
+        $this->mediaRepository = $mediaRepository;
+        
         $this->storage = Storage::disk(
             config('file-manager.upload_disk')
         );
@@ -34,12 +42,13 @@ class FileUploadService
     
     /**
      * Add resource for upload
+     *
      * @param $resource
      * @return $this
      *
      * @throws \Exception
      */
-    public function withResource($resource) {
+    public function setResource($resource) {
         $this->resource = $resource;
     
         if (is_a($this->resource, 'Illuminate\Http\UploadedFile')) {
@@ -63,6 +72,7 @@ class FileUploadService
     
     /**
      * Set media Folder
+     *
      * @param int $folder_id
      * @return $this
      * */
@@ -77,6 +87,7 @@ class FileUploadService
     
     /**
      * Set media Type
+     *
      * @param string $type
      * @return $this
      * */
@@ -86,7 +97,7 @@ class FileUploadService
     }
     
     /**
-     * @return string|\Tadcms\Models\Media
+     * @return string|\FileManager\Models\Media
      * */
     public function save() {
         $uploaded_file = $this->makeUploadedFile();
@@ -97,23 +108,25 @@ class FileUploadService
         }
         
         $filename = $this->makeFilename($uploaded_file);
-        $new_path = $this->storage->putFileAs($this->makeFolderUpload(),
-            $uploaded_file, $filename);
+        $newPath = $this->storage->putFileAs(
+            $this->makeFolderUpload(),
+            $uploaded_file,
+            $filename
+        );
     
         if (config('file-manager.image-optimizer')) {
             $optimizerChain = OptimizerChainFactory::create();
-            $optimizerChain->optimize($this->storage->path($new_path));
+            $optimizerChain->optimize($this->storage->path($newPath));
         }
         
-        $media = (new MediaService())->create([
+        $media = $this->mediaRepository->create([
             'name' => $uploaded_file->getClientOriginalName(),
             'type' => $this->type,
             'mimetype' => $uploaded_file->getMimeType(),
-            'path' => $new_path,
+            'path' => $newPath,
             'size' => $uploaded_file->getSize(),
             'extension' => $uploaded_file->getClientOriginalExtension(),
             'folder_id' => $this->folder_id,
-            'user_id' => \Auth::id(),
         ]);
     
         unlink($uploaded_file->getRealPath());
@@ -122,14 +135,14 @@ class FileUploadService
     }
     
     protected function makeFolderUpload() {
-        $folder_path = date('Y/m/d');
+        $folderPath = date('Y/m/d');
     
         // Make Directory if not exists
-        if (!$this->storage->exists($folder_path)) {
-            File::makeDirectory($this->storage->path($folder_path), 0777, true);
+        if (!$this->storage->exists($folderPath)) {
+            File::makeDirectory($this->storage->path($folderPath), 0777, true);
         }
         
-        return $folder_path;
+        return $folderPath;
     }
     
     /**

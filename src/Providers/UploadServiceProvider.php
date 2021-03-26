@@ -2,14 +2,12 @@
 
 namespace FileManager\Providers;
 
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
-use FileManager\Commands\ClearChunksCommand;
 use FileManager\Config\AbstractConfig;
-use FileManager\Config\FileConfig;
+use FileManager\Config\UploadConfig;
 use FileManager\Handler\HandlerFactory;
 use FileManager\Receiver\FileReceiver;
 use FileManager\Storage\ChunkStorage;
@@ -22,7 +20,7 @@ use FileManager\Storage\ChunkStorage;
  * @link       https://github.com/theanhk/tadcms
  * @license    MIT
  */
-class ChunkUploadServiceProvider extends ServiceProvider
+class UploadServiceProvider extends ServiceProvider
 {
     /**
      * When the service is being booted.
@@ -34,18 +32,18 @@ class ChunkUploadServiceProvider extends ServiceProvider
         $scheduleConfig = $config->scheduleConfig();
         
         // Run only if schedule is enabled
-        if (true === Arr::get($scheduleConfig, 'enabled', false)) {
+        /*if (true === Arr::get($scheduleConfig, 'enabled', false)) {
             // Wait until the app is fully booted
             $this->app->booted(function () use ($scheduleConfig) {
                 // Get the scheduler instance
-                /** @var Schedule $schedule */
+                
                 $schedule = $this->app->make(Schedule::class);
 
                 // Register the clear chunks with custom schedule
                 $schedule->command('uploads:clear')
                     ->cron(Arr::get($scheduleConfig, 'cron', '* * * * *'));
             });
-        }
+        }*/
 
         //$this->registerHandlers($config->handlers());
     }
@@ -58,16 +56,16 @@ class ChunkUploadServiceProvider extends ServiceProvider
     public function register()
     {
         // Register the commands
-        $this->commands([
+        /*$this->commands([
             ClearChunksCommand::class,
-        ]);
+        ]);*/
 
         // Register the config
         $this->registerConfig();
 
         // Register the config via abstract instance
         $this->app->singleton(AbstractConfig::class, function () {
-            return new FileConfig();
+            return new UploadConfig();
         });
 
         // Register the config via abstract instance
@@ -106,9 +104,9 @@ class ChunkUploadServiceProvider extends ServiceProvider
     }
 
     /**
-     * Publishes and mergers the config. Uses the FileConfig. Registers custom handlers.
+     * Publishes and mergers the config. Uses the UploadConfig. Registers custom handlers.
      *
-     * @see FileConfig
+     * @see UploadConfig
      * @see ServiceProvider::publishes
      * @see ServiceProvider::mergeConfigFrom
      *
@@ -117,8 +115,8 @@ class ChunkUploadServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         // Config options
-        $configIndex = FileConfig::FILE_NAME;
-        $configFileName = FileConfig::FILE_NAME.'.php';
+        $configIndex = UploadConfig::FILE_NAME;
+        $configFileName = UploadConfig::FILE_NAME.'.php';
         $configPath = __DIR__.'/../../config/'. $configFileName;
 
         // Publish the config

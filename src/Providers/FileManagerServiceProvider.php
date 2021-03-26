@@ -29,7 +29,7 @@ class FileManagerServiceProvider extends ServiceProvider
         
         $this->registerResources();
         
-        //$this->app->register(ChunkUploadServiceProvider::class);
+        $this->app->register(UploadServiceProvider::class);
     }
     
     protected function registerPublishes() {

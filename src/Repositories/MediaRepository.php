@@ -2,6 +2,7 @@
 
 namespace FileManager\Repositories;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Lararepo\Repositories\EloquentRepository;
 
@@ -17,7 +18,28 @@ class MediaRepository extends EloquentRepository
         return \FileManager\Models\Media::class;
     }
     
-    public function getFiles($folder_id, $type = 'image', $paginate = null) {
+    public function create(array $attributes)
+    {
+        if (Auth::check()) {
+            $attributes['user_id'] = Auth::id();
+            $attributes['user_model'] = Auth::user()->getTable();
+        }
+        
+        return parent::create($attributes);
+    }
+    
+    public function update($id, array $attributes)
+    {
+        if (Auth::check()) {
+            $attributes['user_id'] = Auth::id();
+            $attributes['user_model'] = Auth::user()->getTable();
+        }
+        
+        return parent::update($id, $attributes);
+    }
+    
+    public function getFiles($folder_id, $type = 'image', $paginate = null)
+    {
         $query = $this->model->where('folder_id', '=', $folder_id);
         
         if ($type) {
@@ -31,20 +53,14 @@ class MediaRepository extends EloquentRepository
         return $query->get();
     }
     
-    public function checkFileExists($name, $folder_id = null) {
-        return $this->exists([
-            'folder_id' => $folder_id,
-            'name' => $name
-        ]);
-    }
-    
     /**
      * Get url file media
      *
      * @param int|\FileManager\Models\Media $file
      * @return string
      **/
-    public function getFileUrl($file) {
+    public function getFileUrl($file)
+    {
         if (!is_a($file, 'FileManager\Models\Media')) {
             $file = $this->find($file);
         }
