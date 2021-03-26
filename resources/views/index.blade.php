@@ -157,7 +157,7 @@
 
 <script>
     var lfm_route = "{{ route('file-manager.index') }}";
-    var lang = JSON.parse('{!! json_encode(trans('filemanager')) !!}');
+    var lang = JSON.parse('{!! json_encode(trans('filemanager::file-manager')) !!}');
     var _token = '{{ csrf_token() }}';
 </script>
 <script src="{{ asset('vendor/theanh/laravel-filemanager/js/file-manager.js') }}"></script>

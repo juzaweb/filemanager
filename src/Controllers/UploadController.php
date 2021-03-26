@@ -8,6 +8,7 @@ use Illuminate\Http\UploadedFile;
 use FileManager\Exceptions\UploadMissingFileException;
 use FileManager\Handler\HandlerFactory;
 use FileManager\Receiver\FileReceiver;
+use Illuminate\Support\Facades\DB;
 
 class UploadController extends FileManagerController
 {
@@ -28,7 +29,18 @@ class UploadController extends FileManagerController
         $save = $receiver->receive();
         if ($save->isFinished()) {
             
-            $new_file = $this->saveFile($save->getFile());
+            try {
+                DB::beginTransaction();
+    
+                $new_file = $this->saveFile($save->getFile());
+    
+                DB::commit();
+            }
+            catch (\Exception $exception) {
+                DB::rollBack();
+                throw $exception;
+            }
+            
             if ($new_file) {
                 
                 // event

@@ -6,8 +6,6 @@ use Lararepo\Controllers\Controller;
 
 class FileManagerController extends Controller
 {
-    protected static $success_response = 'OK';
-    
     protected function getCurrentType() {
         $type = request()->get('type', 'image');
         $type = strtolower($type);

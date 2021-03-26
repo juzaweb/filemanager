@@ -47,9 +47,9 @@ class FolderController extends FileManagerController
         ]);
     
         $name = $request->post('name');
-        $parent_id = $request->post('parent_id');
+        $parentId = $request->post('parent_id');
         
-        if ($this->folderRepository->exists(['name' => $name, 'parent_id' => $parent_id])) {
+        if ($this->folderRepository->exists(['name' => $name, 'parent_id' => $parentId])) {
             return $this->error('filemanager::file-manager.folder-exists');
         }
     
@@ -74,9 +74,9 @@ class FolderController extends FileManagerController
         ]);
         
         $id = $request->post('id');
-        $is_file = $request->post('is_file');
+        $isFile = $request->post('is_file');
         
-        if (!$is_file){
+        if (!$isFile){
             DB::transaction(function () use ($id) {
                 $this->folderRepository->delete($id);
             });

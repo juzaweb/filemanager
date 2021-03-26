@@ -4,6 +4,7 @@ namespace FileManager\Controllers;
 
 use Illuminate\Http\Request;
 use FileManager\Repositories\MediaRepository;
+use Illuminate\Support\Facades\DB;
 
 class FileController extends FileManagerController
 {
@@ -14,7 +15,8 @@ class FileController extends FileManagerController
         $this->mediaRepository = $mediaRepository;
     }
     
-    public function index() {
+    public function index()
+    {
         $type = $this->getCurrentType();
         $mimetypes = config('file-manager.file_types.'. $type .'.mimetypes');
         $max_file_size = config('file-manager.file_types.'. $type .'.max_file_size');
@@ -25,13 +27,14 @@ class FileController extends FileManagerController
         ]);
     }
     
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $request->validate([
             'id' => 'required',
             'is_file' => 'required',
         ], [], [
-            'id' => trans('tadcms::file-manager.folder'),
-            'is_file' => trans('tadcms::file-manager.is-file'),
+            'id' => trans('filemanager::file-manager.folder'),
+            'is_file' => trans('filemanager::file-manager.is-file'),
         ]);
         
         $id = $request->post('id');
@@ -41,11 +44,16 @@ class FileController extends FileManagerController
             
             $this->mediaRepository->delete($id);
             
-            do_action('file-manager.delete-file-success', $id);
+            // event
             
         }
-        
-        return $this->success('tadcms::file-manager.successfully');
+    
+        return response([
+            'status' => true,
+            'data' => [
+                'message' => trans('filemanager::file-manager.successfully')
+            ],
+        ]);
     }
     
     public function rename(Request $request)
@@ -54,15 +62,22 @@ class FileController extends FileManagerController
             'new_name' => 'required',
             'id' => 'required|exists:folder_media,id',
         ], [], [
-            'new_name' => trans('tadcms::file-manager.folder-name'),
-            'id' => trans('tadcms::file-manager.folder'),
+            'new_name' => trans('filemanager::file-manager.folder-name'),
+            'id' => trans('filemanager::file-manager.folder'),
         ]);
+    
+        DB::transaction(function () use ($request) {
+            $this->mediaRepository->update($request->post('id'), [
+                'name' => $request->post('new_name'),
+            ]);
+        });
         
-        $this->mediaRepository->update($request->post('id'), [
-            'name' => $request->post('new_name'),
+        return response([
+            'status' => true,
+            'data' => [
+                'message' => trans('filemanager::file-manager.successfully')
+            ],
         ]);
-        
-        return $this->success('tadcms::file-manager.successfully');
     }
     
     public function getErrors()
