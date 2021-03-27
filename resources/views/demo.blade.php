@@ -165,8 +165,9 @@
                 tooltip: 'Insert image with filemanager',
                 click: function () {
 
-                    lfm({type: 'image', prefix: '/file-manager'}, function (url, path) {
+                    lfm({type: 'image', prefix: '/file-manager'}, function (url, path, name) {
                         context.invoke('insertImage', url);
+                        console.log(url, path, name);
                     });
 
                 }
