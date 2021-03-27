@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager\Exceptions;
+namespace Theanh\FileManager\Exceptions;
 
 use Exception;
 

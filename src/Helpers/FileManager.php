@@ -1,13 +1,13 @@
 <?php
 
-namespace FileManager;
+namespace Theanh\FileManager\Helpers;
 
 use Spatie\ImageOptimizer\OptimizerChainFactory;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use FileManager\Repositories\MediaRepository;
+use Theanh\FileManager\Repositories\MediaRepository;
 
 class FileManager
 {
@@ -97,7 +97,7 @@ class FileManager
     }
     
     /**
-     * @return string|\FileManager\Models\Media
+     * @return string|\Theanh\FileManager\Models\Media
      * */
     public function save() {
         $uploadedFile = $this->makeUploadedFile();
@@ -152,7 +152,7 @@ class FileManager
     
     public function isImage($source)
     {
-        if (is_a($source, 'FileManager\Models\Media')) {
+        if (is_a($source, 'Theanh\FileManager\Models\Media')) {
             return in_array($source->mimetype, $this->getImageMimetype());
         }
         

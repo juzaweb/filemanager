@@ -1,14 +1,14 @@
 <?php
 
-namespace FileManager\Handler;
+namespace Theanh\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Exceptions\ChunkSaveException;
-use FileManager\Exceptions\ContentRangeValueToLargeException;
-use FileManager\Save\ChunkSave;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Exceptions\ChunkSaveException;
+use Theanh\FileManager\Exceptions\ContentRangeValueToLargeException;
+use Theanh\FileManager\Save\ChunkSave;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 /**
  * Class ContentRangeUploadHandler.

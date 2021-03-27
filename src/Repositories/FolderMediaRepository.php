@@ -1,14 +1,14 @@
 <?php
 
-namespace FileManager\Repositories;
+namespace Theanh\FileManager\Repositories;
 
 use Illuminate\Support\Facades\Auth;
-use Lararepo\Repositories\EloquentRepository;
+use Theanh\Lararepo\Repositories\EloquentRepository;
 
 class FolderMediaRepository extends EloquentRepository
 {
     /**
-     * @var \FileManager\Models\FolderMedia $model
+     * @var \Theanh\FileManager\Models\FolderMedia $model
      * */
     protected $model;
     
@@ -23,7 +23,7 @@ class FolderMediaRepository extends EloquentRepository
     
     public function model()
     {
-        return \FileManager\Models\FolderMedia::class;
+        return \Theanh\FileManager\Models\FolderMedia::class;
     }
     
     public function create(array $attributes)

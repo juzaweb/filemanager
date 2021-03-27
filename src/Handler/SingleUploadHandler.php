@@ -1,10 +1,10 @@
 <?php
 
-namespace FileManager\Handler;
+namespace Theanh\FileManager\Handler;
 
-use FileManager\Config\AbstractConfig;
-use FileManager\Save\SingleSave;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Save\SingleSave;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 /**
  * Class SingleUploadHandler.

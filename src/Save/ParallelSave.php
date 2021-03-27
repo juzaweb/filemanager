@@ -1,17 +1,17 @@
 <?php
 
-namespace FileManager\Save;
+namespace Theanh\FileManager\Save;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
-use FileManager\ChunkFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Exceptions\ChunkSaveException;
-use FileManager\Exceptions\MissingChunkFilesException;
-use FileManager\FileMerger;
-use FileManager\Handler\AbstractHandler;
-use FileManager\Handler\Traits\HandleParallelUploadTrait;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\ChunkFile;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Exceptions\ChunkSaveException;
+use Theanh\FileManager\Exceptions\MissingChunkFilesException;
+use Theanh\FileManager\FileMerger;
+use Theanh\FileManager\Handler\AbstractHandler;
+use Theanh\FileManager\Handler\Traits\HandleParallelUploadTrait;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 /**
  * Class ParallelSave.

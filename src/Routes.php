@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager;
+namespace Theanh\FileManager;
 
 class Routes
 {

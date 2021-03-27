@@ -1,8 +1,8 @@
 <?php
 
-namespace FileManager\Facades;
+namespace Theanh\FileManager\Facades;
 
-use FileManager\Contracts\FileManagerContract;
+use Theanh\FileManager\Contracts\FileManagerContract;
 use Illuminate\Support\Facades\Facade;
 
 /**

@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-          "FileManager\\": "src/"
+          "Theanh\\FileManager\\": "src/"
         }
     },
     "extra": {
       "laravel": {
         "providers": [
-          "FileManager\\Providers\\FileManagerServiceProvider"
+          "Theanh\\FileManager\\Providers\\FileManagerServiceProvider"
         ]
       }
     }

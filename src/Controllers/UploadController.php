@@ -1,13 +1,13 @@
 <?php
 
-namespace FileManager\Controllers;
+namespace Theanh\FileManager\Controllers;
 
-use FileManager\Facades\FileManager;
+use Theanh\FileManager\Facades\FileManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use FileManager\Exceptions\UploadMissingFileException;
-use FileManager\Handler\HandlerFactory;
-use FileManager\Receiver\FileReceiver;
+use Theanh\FileManager\Exceptions\UploadMissingFileException;
+use Theanh\FileManager\Handler\HandlerFactory;
+use Theanh\FileManager\Receiver\FileReceiver;
 use Illuminate\Support\Facades\DB;
 
 class UploadController extends BaseController

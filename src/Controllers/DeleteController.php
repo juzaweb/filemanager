@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager\Controllers;
+namespace Theanh\FileManager\Controllers;
 
 class DeleteController extends BaseController
 {

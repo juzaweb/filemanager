@@ -1,9 +1,9 @@
 <?php
 
-namespace FileManager\Exceptions;
+namespace Theanh\FileManager\Exceptions;
 
 /**
- * Class FileManager\Exceptions\ChunkInvalidValueException
+ * Class Theanh\FileManager\Exceptions\ChunkInvalidValueException
  *
  * @package    theanh/laravel-filemanager
  * @author     The Anh Dang <dangtheanh16@gmail.com>

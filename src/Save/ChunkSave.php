@@ -1,13 +1,13 @@
 <?php
 
-namespace FileManager\Save;
+namespace Theanh\FileManager\Save;
 
 use Illuminate\Http\UploadedFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Exceptions\ChunkSaveException;
-use FileManager\FileMerger;
-use FileManager\Handler\AbstractHandler;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Exceptions\ChunkSaveException;
+use Theanh\FileManager\FileMerger;
+use Theanh\FileManager\Handler\AbstractHandler;
+use Theanh\FileManager\Storage\ChunkStorage;
 use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
 
 class ChunkSave extends AbstractSave

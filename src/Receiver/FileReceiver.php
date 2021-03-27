@@ -1,14 +1,14 @@
 <?php
 
-namespace FileManager\Receiver;
+namespace Theanh\FileManager\Receiver;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Exceptions\UploadFailedException;
-use FileManager\Handler\AbstractHandler;
-use FileManager\Save\AbstractSave;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Exceptions\UploadFailedException;
+use Theanh\FileManager\Handler\AbstractHandler;
+use Theanh\FileManager\Save\AbstractSave;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 class FileReceiver
 {

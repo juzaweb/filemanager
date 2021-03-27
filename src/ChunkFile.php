@@ -1,8 +1,8 @@
 <?php
 
-namespace FileManager;
+namespace Theanh\FileManager;
 
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 /**
  * Class Chunk.

@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager\Save;
+namespace Theanh\FileManager\Save;
 
 class SingleSave extends AbstractSave
 {

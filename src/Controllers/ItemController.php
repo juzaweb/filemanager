@@ -1,10 +1,10 @@
 <?php
 
-namespace FileManager\Controllers;
+namespace Theanh\FileManager\Controllers;
 
-use FileManager\Facades\FileManager;
-use FileManager\Repositories\FolderMediaRepository;
-use FileManager\Repositories\MediaRepository;
+use Theanh\FileManager\Facades\FileManager;
+use Theanh\FileManager\Repositories\FolderMediaRepository;
+use Theanh\FileManager\Repositories\MediaRepository;
 
 class ItemController extends BaseController
 {

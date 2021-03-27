@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager\Config;
+namespace Theanh\FileManager\Config;
 
 /**
  * Class UploadConfig.

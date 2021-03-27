@@ -1,11 +1,11 @@
 <?php
 
-namespace FileManager\Exceptions;
+namespace Theanh\FileManager\Exceptions;
 
 use Exception;
 
 /**
- * Class FileManager\Exceptions\ContentRangeValueToLargeException
+ * Class Theanh\FileManager\Exceptions\ContentRangeValueToLargeException
  *
  * @package    theanh/laravel-filemanager
  * @author     The Anh Dang <dangtheanh16@gmail.com>

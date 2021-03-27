@@ -58,6 +58,11 @@ return [
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                 'video/mp4',
                 'audio/mp3',
+                'application/octet-stream',
+                'application/x-rar-compressed',
+                'application/zip',
+                'application/x-zip-compressed',
+                'multipart/x-zip'
             ]
         ],
     ]

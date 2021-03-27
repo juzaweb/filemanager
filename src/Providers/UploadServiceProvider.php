@@ -1,19 +1,19 @@
 <?php
 
-namespace FileManager\Providers;
+namespace Theanh\FileManager\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
-use FileManager\Config\AbstractConfig;
-use FileManager\Config\UploadConfig;
-use FileManager\Handler\HandlerFactory;
-use FileManager\Receiver\FileReceiver;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Config\UploadConfig;
+use Theanh\FileManager\Handler\HandlerFactory;
+use Theanh\FileManager\Receiver\FileReceiver;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 /**
- * Class FileManager\Providers\ChunkUploadServiceProvider
+ * Class Theanh\FileManager\Providers\ChunkUploadServiceProvider
  *
  * @package    Theanh\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>

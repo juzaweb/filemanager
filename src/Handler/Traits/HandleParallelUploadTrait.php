@@ -1,10 +1,10 @@
 <?php
 
-namespace FileManager\Handler\Traits;
+namespace Theanh\FileManager\Handler\Traits;
 
-use FileManager\Exceptions\ChunkSaveException;
-use FileManager\Save\ParallelSave;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Exceptions\ChunkSaveException;
+use Theanh\FileManager\Save\ParallelSave;
+use Theanh\FileManager\Storage\ChunkStorage;
 
 trait HandleParallelUploadTrait
 {

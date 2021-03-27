@@ -1,12 +1,12 @@
 <?php
 
-namespace FileManager\Handler;
+namespace Theanh\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Save\AbstractSave;
-use FileManager\Storage\ChunkStorage;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Save\AbstractSave;
+use Theanh\FileManager\Storage\ChunkStorage;
 use Session;
 
 /**

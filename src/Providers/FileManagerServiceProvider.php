@@ -1,14 +1,14 @@
 <?php
 
-namespace FileManager\Providers;
+namespace Theanh\FileManager\Providers;
 
-use FileManager\Contracts\FileManagerContract;
-use FileManager\FileManager;
-use FileManager\Repositories\MediaRepository;
+use Theanh\FileManager\Contracts\FileManagerContract;
+use Theanh\FileManager\Helpers\FileManager;
+use Theanh\FileManager\Repositories\MediaRepository;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class FileManager\Providers\FileManagerServiceProvider
+ * Class Theanh\FileManager\Providers\FileManagerServiceProvider
  *
  * @package    Theanh\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>

@@ -1,11 +1,11 @@
 <?php
 
-namespace FileManager\Handler;
+namespace Theanh\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use FileManager\Config\AbstractConfig;
-use FileManager\Handler\Traits\HandleParallelUploadTrait;
+use Theanh\FileManager\Config\AbstractConfig;
+use Theanh\FileManager\Handler\Traits\HandleParallelUploadTrait;
 
 class DropZoneUploadHandler extends ChunksInRequestUploadHandler
 {
