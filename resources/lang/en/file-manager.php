@@ -84,4 +84,8 @@ return [
     'deleted-successfully'  => 'Deleted successfully',
     'close'  => 'Close',
     'successfully'  => 'Successfully',
+    'errors' => [
+        'folder-exists' => 'Folder already exists',
+        
+    ]
 ];

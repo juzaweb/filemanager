@@ -1,5 +1,5 @@
 ## About
-Media gallery with CKEditor, TinyMCE and Summernote support. Built on Laravel file system.
+The file manager intended for using Laravel with CKEditor / TinyMCE. File manager in table database, do not browse on the server folder. Support Laravel 5, 6, 7.
 
 ### Features
 - [x] DB media and media folder

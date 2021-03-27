@@ -1,6 +1,6 @@
 {
     "name": "theanh/laravel-filemanager",
-    "description": "",
+    "description": "The file manager intended for using Laravel with CKEditor / TinyMCE. File manager in table database, do not browse on the server folder. Support Laravel 5, 6, 7.",
     "keywords": [
         "laravel filemanager",
         "laravel file manager",

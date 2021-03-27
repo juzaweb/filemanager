@@ -49,8 +49,11 @@ class FolderController extends BaseController
         $name = $request->post('name');
         $parentId = $request->post('parent_id');
         
-        if ($this->folderRepository->exists(['name' => $name, 'parent_id' => $parentId])) {
-            return $this->error('filemanager::file-manager.folder-exists');
+        if ($this->folderRepository->exists([
+            'name' => $name,
+            'parent_id' => $parentId
+        ])) {
+            return trans('filemanager::file-manager.errors.folder-exists');
         }
     
         try {
