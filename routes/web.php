@@ -5,7 +5,7 @@ Route::group([
 ], function () {
     Route::get('/', 'FileController@index')->name('file-manager.index');
     
-    Route::get('/get-items', 'ItemsController@getItems')->name('file-manager.get-items');
+    Route::get('/get-items', 'ItemController@getItems')->name('file-manager.get-items');
     
     Route::post('/upload', 'UploadController@upload')->name('file-manager.upload');
     

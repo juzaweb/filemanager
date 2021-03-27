@@ -6,7 +6,7 @@ use FileManager\Repositories\FolderMediaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FolderController extends FileManagerController
+class FolderController extends BaseController
 {
     protected $folderRepository;
     

@@ -4,7 +4,6 @@ namespace FileManager\Repositories;
 
 use FileManager\Facades\FileManager;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Lararepo\Repositories\EloquentRepository;
 
 class MediaRepository extends EloquentRepository
@@ -59,21 +58,5 @@ class MediaRepository extends EloquentRepository
         }
         
         return $query->get();
-    }
-    
-    /**
-     * Get url file media
-     *
-     * @param int|\FileManager\Models\Media $file
-     * @return string
-     **/
-    public function getFileUrl($file)
-    {
-        if (!is_a($file, 'FileManager\Models\Media')) {
-            $file = $this->find($file);
-        }
-        
-        $storage = Storage::disk(config('file-manager.upload_disk'));
-        return $storage->url($file->path);
     }
 }

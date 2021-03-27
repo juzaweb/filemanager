@@ -139,6 +139,35 @@ class FileManager
         if ($this->storage->exists($path)) {
             $this->storage->delete($path);
         }
+        return true;
+    }
+    
+    public function url($path)
+    {
+        if ($this->storage->exists($path)) {
+            return $this->storage->url($path);
+        }
+        return false;
+    }
+    
+    public function isImage($source)
+    {
+        if (is_a($source, 'FileManager\Models\Media')) {
+            return in_array($source->mimetype, $this->getImageMimetype());
+        }
+        
+        return false;
+    }
+    
+    protected function getImageMimetype()
+    {
+        return [
+            'image/jpeg',
+            'image/pjpeg',
+            'image/png',
+            'image/gif',
+            'image/svg+xml',
+        ];
     }
     
     protected function makeFolderUpload() {

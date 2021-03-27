@@ -6,7 +6,7 @@ use FileManager\Repositories\MediaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FileController extends FileManagerController
+class FileController extends BaseController
 {
     protected $mediaRepository;
     

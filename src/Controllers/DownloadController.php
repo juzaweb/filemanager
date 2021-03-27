@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use FileManager\Models\Media;
 
-class DownloadController extends FileManagerController
+class DownloadController extends BaseController
 {
     public function download(Request $request) {
         $media = Media::findOrFail($request->get('file'), ['path', 'name']);

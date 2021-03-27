@@ -4,19 +4,11 @@ namespace FileManager\Controllers;
 
 use Lararepo\Controllers\Controller;
 
-class FileManagerController extends Controller
+class BaseController extends Controller
 {
     protected function getCurrentType() {
         $type = request()->get('type', 'image');
-        $type = strtolower($type);
-        
-        switch ($type) {
-            case 'image': return 'image';
-            case 'images': return 'image';
-            case 'file': return 'file';
-            case 'files': return 'file';
-            default: return 'image';
-        }
+        return strtolower($type);
     }
     
     protected function getCurrentDir() {

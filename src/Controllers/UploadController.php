@@ -10,7 +10,7 @@ use FileManager\Handler\HandlerFactory;
 use FileManager\Receiver\FileReceiver;
 use Illuminate\Support\Facades\DB;
 
-class UploadController extends FileManagerController
+class UploadController extends BaseController
 {
     protected $errors = [];
     

@@ -2,7 +2,7 @@
 
 namespace FileManager\Controllers;
 
-class DeleteController extends FileManagerController
+class DeleteController extends BaseController
 {
     public function getDelete()
     {

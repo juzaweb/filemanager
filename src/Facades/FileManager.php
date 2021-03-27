@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static FileManager withResource($resource)
- * @method static FileManager delete(string $path)
+ * @method static bool delete(string $path)
+ * @method static false|string url(string $path)
+ * @method static bool isImage(string $source)
  * @method FileManager setFolder(int $folder_id)
  * @method FileManager setType(string $type)
  * @method FileManager save()

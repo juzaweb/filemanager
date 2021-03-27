@@ -2,17 +2,18 @@
 
 namespace FileManager\Controllers;
 
+use FileManager\Facades\FileManager;
 use FileManager\Repositories\FolderMediaRepository;
 use FileManager\Repositories\MediaRepository;
-use Illuminate\Http\Request;
 
-class ItemsController extends FileManagerController
+class ItemController extends BaseController
 {
     protected $mediaRepository;
     
     protected $folderRepository;
     
-    public function __construct(
+    public function __construct
+    (
         MediaRepository $mediaRepository,
         FolderMediaRepository $folderRepository
     )
@@ -25,7 +26,7 @@ class ItemsController extends FileManagerController
     {
         $path = $this->getCurrentDir();
         $type = $this->getCurrentType();
-
+        
         $files = $this->getFiles($path, $type);
         $previous_dir = $this->getFolderParent($path);
         $directories = $this->getDirectories($path, $type);
@@ -84,15 +85,15 @@ class ItemsController extends FileManagerController
         $result = [];
         
         foreach ($files as $row) {
-            $file_url = $this->mediaRepository->getFileUrl($row);
-            $thumb = $type == 'image' ? $file_url : null;
+            $fileUrl = FileManager::url($row->path);
+            $thumb = FileManager::isImage($row) ? $fileUrl : null;
             $icon = isset($file_icon[strtolower($row->extension)]) ?
                 $file_icon[strtolower($row->extension)] : 'fa-file-o';
             
             $result[] = (object) [
                 'id' => $row->id,
                 'name' => $row->name,
-                'url' => $file_url,
+                'url' => $fileUrl,
                 'size' => $row->size,
                 'updated' => strtotime($row->updated_at),
                 'path' => $row->path,
