@@ -2,6 +2,11 @@
 
 return [
     /**
+     * Prefix route your file manager
+     * Default: file-manager
+     * */
+    'route_prefix' => env('LFM_PREFIX', 'file-manager'),
+    /**
      * File system disk for upload by file-manager
      * Default: public
      * */

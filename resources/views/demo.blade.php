@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel Filemanager</title>
+    <title>Demo File Manager</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/theanh/laravel-filemanager/images/folder.png') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -28,24 +28,36 @@
         <div class="col-md-6">
             <h2>Standalone Image Button</h2>
             <div class="input-group">
-          <span class="input-group-btn">
-            <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-              <i class="fa fa-picture-o"></i> Choose
-            </a>
-          </span>
+                  <span class="input-group-btn">
+                    <a id="lfm" class="btn btn-primary">
+                      <i class="fa fa-picture-o"></i> Choose
+                    </a>
+                  </span>
                 <input id="thumbnail" class="form-control" type="text" name="filepath">
             </div>
-            <img id="holder" style="margin-top:15px;max-height:100px;">
+            <div id="holder"></div>
+
             <h2>Standalone File Button</h2>
             <div class="input-group">
-          <span class="input-group-btn">
-            <a id="lfm2" data-input="thumbnail2" data-preview="holder2" class="btn btn-primary">
-              <i class="fa fa-picture-o"></i> Choose
-            </a>
-          </span>
+                  <span class="input-group-btn">
+                    <a id="lfm2" class="btn btn-primary">
+                      <i class="fa fa-picture-o"></i> Choose
+                    </a>
+                  </span>
                 <input id="thumbnail2" class="form-control" type="text" name="filepath">
             </div>
-            <img id="holder2" style="margin-top:15px;max-height:100px;">
+
+            <h2>Standalone Class Button</h2>
+            <div class="input-group">
+                  <span class="input-group-btn">
+                    <a data-input="thumbnail3" data-preview="holder3" class="btn btn-primary file-manager" data-name="name3">
+                      <i class="fa fa-picture-o"></i> Choose
+                    </a>
+                  </span>
+                <div id="name3"></div>
+                <input id="thumbnail3" class="form-control" type="text" name="filepath">
+                <div id="holder3"></div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -59,7 +71,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
-    var route_prefix = "{{ url(config('file-manager.url_prefix', config('file-manager.prefix'))) }}";
+    var route_prefix = "/file-manager";
 </script>
 
 <!-- CKEditor init -->
@@ -68,10 +80,10 @@
 <script>
     $('textarea[name=ce]').ckeditor({
         height: 100,
-        filebrowserImageBrowseUrl: route_prefix + '?type=Images',
-        filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
-        filebrowserBrowseUrl: route_prefix + '?type=Files',
-        filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+        filebrowserImageBrowseUrl: route_prefix + '?type=image',
+        filebrowserImageUploadUrl: route_prefix + '/upload?type=image&_token={{csrf_token()}}',
+        filebrowserBrowseUrl: route_prefix + '?type=file',
+        filebrowserUploadUrl: route_prefix + '/upload?type=file&_token={{csrf_token()}}'
     });
 </script>
 
@@ -92,10 +104,10 @@
 
             var cmsURL = editor_config.path_absolute + route_prefix + '?field_name=' + field_name;
             if (type == 'image') {
-                cmsURL = cmsURL + "&type=Images";
+                cmsURL = cmsURL + "&type=image";
             }
             else {
-                cmsURL = cmsURL + "&type=Files";
+                cmsURL = cmsURL + "&type=file";
             }
 
             tinyMCE.activeEditor.windowManager.open({
@@ -111,13 +123,21 @@
 
     tinymce.init(editor_config);
 </script>
-
 <script>
-    {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/file-manager.js')) !!}
+    var fileManager = {
+        prefix: "{{ config('file-manager.route_prefix') }}",
+    };
 </script>
+<script src="{{ asset('vendor/theanh/laravel-filemanager/js/lfm.js') }}"></script>
 <script>
-    $('#lfm').filemanager('image', {prefix: route_prefix});
-    $('#lfm2').filemanager('file', {prefix: route_prefix});
+    $('#lfm').filemanager('image', {
+        'input': 'thumbnail',
+        'preview': 'holder',
+    });
+
+    $('#lfm2').filemanager('file', {
+        'input': 'thumbnail2',
+    });
 </script>
 
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
@@ -132,7 +152,7 @@
 
         // Define function to open filemanager window
         var lfm = function (options, cb) {
-            var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
+            var route_prefix = (options && options.prefix) ? options.prefix : '/file-manager';
             window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
             window.SetUrl = cb;
         };
@@ -145,7 +165,7 @@
                 tooltip: 'Insert image with filemanager',
                 click: function () {
 
-                    lfm({type: 'image', prefix: '/laravel-filemanager'}, function (url, path) {
+                    lfm({type: 'image', prefix: '/file-manager'}, function (url, path) {
                         context.invoke('insertImage', url);
                     });
 
