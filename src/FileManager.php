@@ -134,6 +134,13 @@ class FileManager
         return $media;
     }
     
+    public function delete($path)
+    {
+        if ($this->storage->exists($path)) {
+            $this->storage->delete($path);
+        }
+    }
+    
     protected function makeFolderUpload() {
         $folderPath = date('Y/m/d');
     

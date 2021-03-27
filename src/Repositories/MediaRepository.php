@@ -2,6 +2,7 @@
 
 namespace FileManager\Repositories;
 
+use FileManager\Facades\FileManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Lararepo\Repositories\EloquentRepository;
@@ -36,6 +37,13 @@ class MediaRepository extends EloquentRepository
         }
         
         return parent::update($id, $attributes);
+    }
+    
+    public function delete($id)
+    {
+        FileManager::delete($this->find($id, ['path'])->path);
+        
+        return parent::delete($id);
     }
     
     public function getFiles($folder_id, $type = 'image', $paginate = null)

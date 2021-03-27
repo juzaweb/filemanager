@@ -65,7 +65,7 @@ class ItemsController extends FileManagerController
                     'time' => $row->created_at,
                     'type' => 'folder',
                     'icon' => 'fa-folder-o',
-                    'thumb' => asset('vendor/tadcms/images/folder.png'),
+                    'thumb' => asset('vendor/theanh/laravel-filemanager/images/folder.png'),
                     'is_file' => false
                 ];
             }

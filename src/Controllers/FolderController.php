@@ -40,7 +40,7 @@ class FolderController extends FileManagerController
     {
         $request->validate([
             'name' => 'required|string|max:150',
-            'parent_id' => 'nullable|exists:folder_media,id',
+            'parent_id' => 'nullable|exists:lfm_folder_media,id',
         ], [], [
             'name' => trans('filemanager::file-manager.folder-name'),
             'parent_id' => trans('filemanager::file-manager.parent'),
@@ -53,15 +53,20 @@ class FolderController extends FileManagerController
             return $this->error('filemanager::file-manager.folder-exists');
         }
     
-        DB::transaction(function () use ($request) {
+        try {
+            DB::beginTransaction();
             $folder = $this->folderRepository->create(
                 $request->all()
             );
-        });
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            throw $exception;
+        }
         
         // event
-        
-        return parent::$success_response;
+    
+        return 'OK';
     }
 
     public function delete(Request $request){
@@ -81,15 +86,15 @@ class FolderController extends FileManagerController
                 $this->folderRepository->delete($id);
             });
         }
-
-        return $this->success('filemanager::file-manager.successfully');
+    
+        return 'OK';
     }
     
     public function rename(Request $request)
     {
         $request->validate([
             'new_name' => 'required',
-            'id' => 'required|exists:folder_media,id',
+            'id' => 'required|exists:lfm_folder_media,id',
         ], [], [
             'new_name' => trans('filemanager::file-manager.folder-name'),
             'id' => trans('filemanager::file-manager.folder'),
@@ -100,7 +105,7 @@ class FolderController extends FileManagerController
                 'name' => $request->post('new_name'),
             ]);
         });
-        
-        return $this->success('filemanager::file-manager.successfully');
+    
+        return 'OK';
     }
 }

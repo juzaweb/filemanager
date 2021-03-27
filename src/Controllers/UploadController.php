@@ -51,12 +51,7 @@ class UploadController extends FileManagerController
                 ]);
             }
             
-            return response()->json([
-                'status' => false,
-                'errors' => [
-                    'message' => 'Can\'t save your file.'
-                ]
-            ]);
+            return 'Can\'t save your file.';
         }
     
         $handler = $save->handler();

@@ -52,20 +52,15 @@ class FileController extends FileManagerController
             
             // event
         }
-        
-        return response([
-            'status' => true,
-            'data' => [
-                'message' => trans('filemanager::file-manager.successfully')
-            ],
-        ]);
+    
+        return 'OK';
     }
     
     public function rename(Request $request)
     {
         $request->validate([
             'new_name' => 'required',
-            'id' => 'required|exists:lfm_folder_media,id',
+            'id' => 'required|exists:lfm_media,id',
         ], [], [
             'new_name' => trans('filemanager::file-manager.folder-name'),
             'id' => trans('filemanager::file-manager.folder'),

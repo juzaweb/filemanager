@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static FileManager withResource($resource)
+ * @method static FileManager delete(string $path)
  * @method FileManager setFolder(int $folder_id)
  * @method FileManager setType(string $type)
  * @method FileManager save()

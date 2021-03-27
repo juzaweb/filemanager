@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ trans('filemanager::file-manager.title-page') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('styles/file-manager/img/folder.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/theanh/laravel-filemanager/images/folder.png') }}">
     <link rel="stylesheet" href="{{ asset('vendor/theanh/laravel-filemanager/css/file-manager.css') }}">
 </head>
 <body>
