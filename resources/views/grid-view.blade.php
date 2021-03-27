@@ -17,17 +17,18 @@
                     @else
                         <i class="fa {{ $item->icon }} fa-5x"></i>
                     @endif
+
                 </div>
 
                 <div class="caption text-center">
                     <div class="btn-group">
-                        <nav class="navbar navbar-expand-sm border" id="nav">
-                            <div class="collapse navbar-collapse" id="nav-buttons">
+                        <nav class="navbar navbar-expand-sm border-top">
+                            <div class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
                                     <li class="nav-item dropdown">
                                         <div class="row">
                                             <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8">
-                                                <button type="button" data-id="{{ $item->path }}" class="item_name btn btn-default btn-xs{{ $item->is_file ? '' : 'folder-item'}}" @if($item->is_file) onclick="useFile('{{ $item->url }}', '{{ $item->path }}', '{{ $item->name }}')" @endif >
+                                                <button type="button" data-id="{{ $item->path }}" class="item_name btn btn-default btn-xs{{ $item->is_file ? '' : 'folder-item'}}" >
                                                     {{ $item->name }}
                                                 </button>
                                             </div>
@@ -65,7 +66,7 @@
 
                                                     <li>
                                                         <a href="javascript:trash('{{ $item->id }}', {{ $item->is_file ? 1 : 0 }})" class="dropdown-item"><i class="fa fa-trash
-                      fa-fw"></i> {{ trans('filemanager::file-manager.menu-delete') }}</a></li>
+                  fa-fw"></i> {{ trans('filemanager::file-manager.menu-delete') }}</a></li>
                                                 </ul>
                                             </div>
                                         </div>
