@@ -26,6 +26,7 @@ return [
     
     /**
      * File type for file manager: type=filetype
+     * You can add new file type
      * Default: image, file
      * */
     'file_types' => [

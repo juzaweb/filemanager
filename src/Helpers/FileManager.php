@@ -115,8 +115,10 @@ class FileManager
         );
     
         if (config('file-manager.image-optimizer')) {
-            $optimizerChain = OptimizerChainFactory::create();
-            $optimizerChain->optimize($this->storage->path($newPath));
+            if (in_array($uploadedFile->getMimeType(), $this->getImageMimetype())) {
+                $optimizerChain = OptimizerChainFactory::create();
+                $optimizerChain->optimize($this->storage->path($newPath));
+            }
         }
         
         $media = $this->mediaRepository->create([

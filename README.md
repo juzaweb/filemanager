@@ -8,9 +8,99 @@ Media gallery with CKEditor, TinyMCE and Summernote support. Built on Laravel fi
 - [x] Uploading validation
 - [x] Cropping and resizing of images
 - [x] Add custom support type
+- [x] Image optimize after upload
 - [ ] Multi media select
 
-## [Install](https://github.com/theanhk/laravel-filemanager/blob/master/docs/install.md)
+## Install
+- Install package
+```
+composer require theanh/laravel-filemanager
+```
+
+- Publish the package’s config and assets:
+```
+php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=config
+php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=assets
+```
+- Migration
+```
+php artisan migrate
+```
+
+- Create symbolic link:
+```
+php artisan storage:link
+```
+
+- Edit routes/web.php
+```
+Route::group(['prefix' => 'file-manager', 'middleware' => ['web', 'auth']], function (){
+    \Theanh\FileManager\Routes::web();
+});
+```
+
+## Configs
+```
+<?php
+
+return [
+    /**
+     * Prefix route your file manager
+     * Default: file-manager
+     * */
+    'route_prefix' => env('LFM_PREFIX', 'file-manager'),
+    /**
+     * File system disk for upload by file-manager
+     * Default: public
+     * */
+    'upload_disk' => env('UPLOAD_DISK', 'public'),
+
+    /**
+     * File system disk for temps file
+     * Default: local
+     * */
+    'temp_disk' => env('TEMP_DISK', 'local'),
+
+    /**
+     * Optimizer image after upload by file manager
+     * Default: true
+     * */
+    'image-optimizer' => true,
+
+    /**
+     * File type for file manager: type=filetype
+     * You can add new file type
+     * Default: image, file
+     * */
+    'file_types' => [
+        'image' => [
+            /**
+             * Max file size upload for type=image (MB)
+             * Default: 15 MB
+             * */
+            'max_file_size' => 15, //MB
+            /**
+             * Mime Types file allowed upload for type=image
+             * Default: 15 MB
+             * */
+            'mimetypes' => [
+                'image/jpeg',
+                'image/pjpeg',
+                'image/png',
+                // ...
+            ]
+        ],
+        'file' => [
+            'max_file_size' => 1024, //MB
+            'mimetypes' => [
+                'image/jpeg',
+                'application/pdf',
+                // ...
+            ]
+        ],
+    ]
+];
+```
 
 ## Usage
 - [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
