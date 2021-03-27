@@ -63,7 +63,10 @@ return [
 
     /**
      * Optimizer image after upload by file manager
-     * Default: true
+     * You can install the necessary binaries to use
+     * Read more: https://github.com/spatie/image-optimizer/blob/master/README.md
+     *
+     * Default: false
      * */
     'image-optimizer' => true,
 
