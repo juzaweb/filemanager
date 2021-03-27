@@ -2,8 +2,8 @@
 
 namespace FileManager\Controllers;
 
-use Illuminate\Http\Request;
 use FileManager\Repositories\MediaRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class FileController extends FileManagerController
@@ -41,13 +41,18 @@ class FileController extends FileManagerController
         $is_file = $request->post('is_file');
         
         if ($is_file){
-            
-            $this->mediaRepository->delete($id);
+            try {
+                DB::beginTransaction();
+                $this->mediaRepository->delete($id);
+                DB::commit();
+            } catch (\Exception $exception) {
+                DB::rollBack();
+                throw $exception;
+            }
             
             // event
-            
         }
-    
+        
         return response([
             'status' => true,
             'data' => [
@@ -60,34 +65,23 @@ class FileController extends FileManagerController
     {
         $request->validate([
             'new_name' => 'required',
-            'id' => 'required|exists:folder_media,id',
+            'id' => 'required|exists:lfm_folder_media,id',
         ], [], [
             'new_name' => trans('filemanager::file-manager.folder-name'),
             'id' => trans('filemanager::file-manager.folder'),
         ]);
-    
-        DB::transaction(function () use ($request) {
+        
+        try {
+            DB::beginTransaction();
             $this->mediaRepository->update($request->post('id'), [
                 'name' => $request->post('new_name'),
             ]);
-        });
-        
-        return response([
-            'status' => true,
-            'data' => [
-                'message' => trans('filemanager::file-manager.successfully')
-            ],
-        ]);
-    }
-    
-    public function getErrors()
-    {
-        $arr_errors = [];
-        
-        if (!extension_loaded('gd') && !extension_loaded('imagick')) {
-            array_push($arr_errors, trans('file-manager.message-extension_not_found'));
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            throw $exception;
         }
         
-        return $arr_errors;
+        return 'OK';
     }
 }

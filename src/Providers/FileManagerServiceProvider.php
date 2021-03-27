@@ -12,14 +12,16 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package    Theanh\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
- * @link       https://github.com/theanhk/tadcms
+ * @link       https://github.com/theanhk/laravel-filemanager
  * @license    MIT
  */
 class FileManagerServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-    
+        $this->bootPublishes();
+        $this->bootDatabases();
+        $this->bootResources();
     }
     
     public function register()
@@ -32,14 +34,11 @@ class FileManagerServiceProvider extends ServiceProvider
             return new FileManager($this->app->make(MediaRepository::class));
         });
         
-        $this->registerPublishes();
-        
-        $this->registerResources();
-        
         $this->app->register(UploadServiceProvider::class);
     }
     
-    protected function registerPublishes() {
+    protected function bootPublishes()
+    {
         $this->publishes([
             __DIR__.'/../../config/file-manager.php' => config_path('file-manager.php'),
         ], 'config');
@@ -53,7 +52,13 @@ class FileManagerServiceProvider extends ServiceProvider
         ], 'lang');
     }
     
-    protected function registerResources() {
+    protected function bootDatabases()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../../migrations');
+    }
+    
+    protected function bootResources()
+    {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'filemanager');
         
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'filemanager');

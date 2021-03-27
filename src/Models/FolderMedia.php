@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FolderMedia extends Model
 {
-    protected $table = 'folder_media';
+    protected $table = 'lfm_folder_media';
     protected $fillable = [
         'name',
         'type',
@@ -24,7 +24,8 @@ class FolderMedia extends Model
         return $this->hasMany('FileManager\Models\FolderMedia', 'parent_id', 'id');
     }
     
-    public function files() {
+    public function files()
+    {
         return $this->hasMany('FileManager\Models\Media', 'folder_id', 'id');
     }
 }

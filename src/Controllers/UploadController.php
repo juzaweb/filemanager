@@ -28,16 +28,14 @@ class UploadController extends FileManagerController
     
         $save = $receiver->receive();
         if ($save->isFinished()) {
-            
             try {
                 DB::beginTransaction();
-    
                 $new_file = $this->saveFile($save->getFile());
-    
                 DB::commit();
             }
             catch (\Exception $exception) {
                 DB::rollBack();
+                unlink($save->getFile()->getRealPath());
                 throw $exception;
             }
             
@@ -74,7 +72,7 @@ class UploadController extends FileManagerController
         $folder_id = $this->getCurrentDir();
         $type = $this->getCurrentType();
         
-        return FileManager::setResource($file)
+        return FileManager::withResource($file)
             ->setFolder($folder_id)
             ->setType($type)
             ->save();

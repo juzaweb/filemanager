@@ -12,6 +12,15 @@ class FolderMediaRepository extends EloquentRepository
      * */
     protected $model;
     
+    protected $mediaRepository;
+    
+    public function __construct(MediaRepository $mediaRepository)
+    {
+        parent::__construct();
+        
+        $this->mediaRepository = $mediaRepository;
+    }
+    
     public function model()
     {
         return \FileManager\Models\FolderMedia::class;
@@ -35,6 +44,16 @@ class FolderMediaRepository extends EloquentRepository
         }
         
         return parent::update($id, $attributes);
+    }
+    
+    public function delete($id)
+    {
+        $files = $this->getAllFiles($id);
+        foreach ($files as $file) {
+            $this->mediaRepository->delete($file);
+        }
+        
+        return parent::delete($id);
     }
     
     public function getAllFiles($folder)

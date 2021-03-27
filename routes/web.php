@@ -9,8 +9,6 @@ Route::group([
     
     Route::post('/upload', 'UploadController@upload')->name('file-manager.upload');
     
-    Route::get('/errors', 'FileController@getErrors')->name('file-manager.errors');
-    
     Route::get('/download', 'DownloadController@download')->name('file-manager.download');
     
     Route::group(['prefix' => 'folder'], function () {

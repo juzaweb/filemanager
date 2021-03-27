@@ -48,14 +48,14 @@ class FileManager
      *
      * @throws \Exception
      */
-    public function setResource($resource) {
+    public function withResource($resource) {
         $this->resource = $resource;
     
         if (is_a($this->resource, 'Illuminate\Http\UploadedFile')) {
             $this->resource_type = 'uploaded';
         }
         
-        if (is_url($this->resource)) {
+        if (filter_var($this->resource, FILTER_VALIDATE_URL)) {
             $this->resource_type = 'url';
         }
         
@@ -100,17 +100,17 @@ class FileManager
      * @return string|\FileManager\Models\Media
      * */
     public function save() {
-        $uploaded_file = $this->makeUploadedFile();
+        $uploadedFile = $this->makeUploadedFile();
         
-        if (!$this->fileIsValid($uploaded_file)) {
-            unlink($uploaded_file->getRealPath());
+        if (!$this->fileIsValid($uploadedFile)) {
+            unlink($uploadedFile->getRealPath());
             return false;
         }
         
-        $filename = $this->makeFilename($uploaded_file);
+        $filename = $this->makeFilename($uploadedFile);
         $newPath = $this->storage->putFileAs(
             $this->makeFolderUpload(),
-            $uploaded_file,
+            $uploadedFile,
             $filename
         );
     
@@ -120,16 +120,16 @@ class FileManager
         }
         
         $media = $this->mediaRepository->create([
-            'name' => $uploaded_file->getClientOriginalName(),
+            'name' => $uploadedFile->getClientOriginalName(),
             'type' => $this->type,
-            'mimetype' => $uploaded_file->getMimeType(),
+            'mimetype' => $uploadedFile->getMimeType(),
             'path' => $newPath,
-            'size' => $uploaded_file->getSize(),
-            'extension' => $uploaded_file->getClientOriginalExtension(),
+            'size' => $uploadedFile->getSize(),
+            'extension' => $uploadedFile->getClientOriginalExtension(),
             'folder_id' => $this->folder_id,
         ]);
     
-        unlink($uploaded_file->getRealPath());
+        unlink($uploadedFile->getRealPath());
         
         return $media;
     }
@@ -171,11 +171,8 @@ class FileManager
      * */
     protected function makeUploadedFileByUrl() {
         $content = @file_get_contents($this->resource);
-        
         $temp_name = basename($this->resource);
-        
         $this->storage->put($temp_name, $content);
-        
         return (new UploadedFile($this->storage->path($temp_name), $temp_name));
     }
     
