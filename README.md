@@ -106,6 +106,36 @@ return [
 ```
 
 ## Usage
+- File Manager helper
+Add media with \Illuminate\Http\UploadedFile
+
+```
+FileManager::withResource(request()->file('upload_file'))
+    ->setFolder($folder_id)
+    ->setType($type)
+    ->save();
+```
+
+Add media with url
+```
+FileManager::withResource($urlFile)
+    ->setFolder($folder_id)
+    ->setType($type)
+    ->save();
+```
+
+Add media with path
+```
+FileManager::withResource($pathFile)
+    ->setFolder($folder_id)
+    ->setType($type)
+    ->save();
+```
+
+Note:
+    $folder_id: Id lfm_folder_media table
+    $type: image/file or customs your type
+
 - [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
 - [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
 - [JavaScript integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/javascript-integration.md)
