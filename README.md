@@ -1,5 +1,5 @@
 ## About
-The file manager intended for using Laravel with CKEditor / TinyMCE. File manager in table database, do not browse on the server folder. Support Laravel 5, 6, 7.
+The file manager intended for using Laravel with CKEditor / TinyMCE. File manager in table database, do not browse on the server folder.
 ![File Manager demo](https://i.imgur.com/1SgXwkM.png)
 
 ### Features
