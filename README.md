@@ -106,8 +106,7 @@ return [
 ```
 
 ## Usage
-- File Manager helper &nbsp;
-Add media with ``\Illuminate\Http\UploadedFile``
+- Add media with ``\Illuminate\Http\UploadedFile``
 
 ```
 FileManager::withResource(request()->file('upload_file'))
@@ -116,7 +115,7 @@ FileManager::withResource(request()->file('upload_file'))
     ->save();
 ```
 
-Add media with url
+- Add media with url
 ```
 FileManager::withResource($urlFile)
     ->setFolder($folder_id)
@@ -124,7 +123,7 @@ FileManager::withResource($urlFile)
     ->save();
 ```
 
-Add media with path
+- Add media with path
 ```
 FileManager::withResource($pathFile)
     ->setFolder($folder_id)
