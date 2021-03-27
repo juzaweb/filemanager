@@ -10,12 +10,12 @@ Media gallery with CKEditor, TinyMCE and Summernote support. Built on Laravel fi
 - [x] Add custom support type
 - [ ] Multi media select
 
-## [Install](https://github.com/theanhk/laravel-filemanager/docs/install.md)
+## [Install](https://github.com/theanhk/laravel-filemanager/blob/master/docs/install.md)
 
 ## Usage
-- [Editor Integration](https://github.com/theanhk/laravel-filemanager/docs/usage-editor.md)
-- [Standalone Integration](https://github.com/theanhk/laravel-filemanager/docs/usage-editor.md)
-- [JavaScript integration](https://github.com/theanhk/laravel-filemanager/docs/javascript-integration.md)
+- [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [JavaScript integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/javascript-integration.md)
 
 ## Credits
 [Laravel File Manager](https://github.com/UniSharp/laravel-filemanager)
