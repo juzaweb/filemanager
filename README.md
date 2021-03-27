@@ -89,11 +89,11 @@ $('textarea.my-editor').ckeditor(options);
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
       var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-      var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+      var cmsURL = editor_config.path_absolute + 'file-manager?editor=' + meta.fieldname;
       if (meta.filetype == 'image') {
-        cmsURL = cmsURL + "&type=Images";
+        cmsURL = cmsURL + "&type=image";
       } else {
-        cmsURL = cmsURL + "&type=Files";
+        cmsURL = cmsURL + "&type=file";
       }
 
       tinyMCE.activeEditor.windowManager.openUrl({
@@ -134,11 +134,11 @@ $('textarea.my-editor').ckeditor(options);
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
       var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-      var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+      var cmsURL = editor_config.path_absolute + 'file-manager?field_name=' + field_name;
       if (type == 'image') {
-        cmsURL = cmsURL + "&type=Images";
+        cmsURL = cmsURL + "&type=image";
       } else {
-        cmsURL = cmsURL + "&type=Files";
+        cmsURL = cmsURL + "&type=file";
       }
 
       tinyMCE.activeEditor.windowManager.open({
@@ -167,7 +167,7 @@ $('textarea.my-editor').ckeditor(options);
 <script src="{{ asset('vendor/theanh/laravel-filemanager/js/lfm.js') }}"></script>
 ```
 
-- Create a button, input, and image preview holder if you are going to choose images. Specify the id to the input and image preview by ``data-input`` and ``data-preview``.
+- Create a button, input, and image preview holder if you are going to choose images. Add class ``file-manager`` to button choose file. Specify the id to the input and image preview by ``data-input`` and ``data-preview``.
 ```
 <div class="input-group">
    <span class="input-group-btn">
@@ -183,10 +183,10 @@ $('textarea.my-editor').ckeditor(options);
 ### JavaScript integration
 ```
 var lfm = function (options, cb) {
-            var route_prefix = (options && options.prefix) ? options.prefix : '/file-manager';
-            window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-            window.SetUrl = cb;
-        };
+    var route_prefix = (options && options.prefix) ? options.prefix : '/file-manager';
+    window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
+      window.SetUrl = cb;
+};
 ```
 
 And use it like this:
