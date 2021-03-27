@@ -22,7 +22,7 @@ class MediaRepository extends EloquentRepository
     {
         if (Auth::check()) {
             $attributes['user_id'] = Auth::id();
-            $attributes['user_model'] = Auth::user()->getTable();
+            $attributes['user_model'] = get_class(\Auth::user());
         }
         
         return parent::create($attributes);
@@ -32,7 +32,7 @@ class MediaRepository extends EloquentRepository
     {
         if (Auth::check()) {
             $attributes['user_id'] = Auth::id();
-            $attributes['user_model'] = Auth::user()->getTable();
+            $attributes['user_model'] = get_class(\Auth::user());
         }
         
         return parent::update($id, $attributes);

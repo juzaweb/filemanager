@@ -18,8 +18,8 @@ composer require theanh/laravel-filemanager
 
 - Publish the package’s config and assets:
 ```
-php artisan vendor:publish --tag=config
-php artisan vendor:publish --tag=assets
+php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=config
+php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=assets
 ```
 - Create symbolic link:
 ```
