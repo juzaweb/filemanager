@@ -106,7 +106,13 @@ return [
 ```
 
 ## Usage
-- Add media with ``\Illuminate\Http\UploadedFile``
+- [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [JavaScript integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/javascript-integration.md)
+
+- Helper class
+
+ - Add media with ``\Illuminate\Http\UploadedFile``
 
 ```
 FileManager::withResource(request()->file('upload_file'))
@@ -115,7 +121,7 @@ FileManager::withResource(request()->file('upload_file'))
     ->save();
 ```
 
-- Add media with url
+ - Add media with url
 ```
 FileManager::withResource($urlFile)
     ->setFolder($folder_id)
@@ -123,7 +129,7 @@ FileManager::withResource($urlFile)
     ->save();
 ```
 
-- Add media with path
+ - Add media with path
 ```
 FileManager::withResource($pathFile)
     ->setFolder($folder_id)
@@ -136,10 +142,6 @@ Note:
     $folder_id: Id lfm_folder_media table
     $type: image/file or customs your type
 ```
-
-- [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [JavaScript integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/javascript-integration.md)
 
 ## Credits
 [Laravel File Manager](https://github.com/UniSharp/laravel-filemanager)
