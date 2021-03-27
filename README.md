@@ -40,72 +40,6 @@ Route::group(['prefix' => 'file-manager', 'middleware' => ['web', 'auth']], func
 });
 ```
 
-## Configs
-```
-<?php
-
-return [
-    /**
-     * Prefix route your file manager
-     * Default: file-manager
-     * */
-    'route_prefix' => env('LFM_PREFIX', 'file-manager'),
-    /**
-     * File system disk for upload by file-manager
-     * Default: public
-     * */
-    'upload_disk' => env('UPLOAD_DISK', 'public'),
-
-    /**
-     * File system disk for temps file
-     * Default: local
-     * */
-    'temp_disk' => env('TEMP_DISK', 'local'),
-
-    /**
-     * Optimizer image after upload by file manager
-     * You can install the necessary binaries to use
-     * Read more: https://github.com/spatie/image-optimizer/blob/master/README.md
-     *
-     * Default: false
-     * */
-    'image-optimizer' => true,
-
-    /**
-     * File type for file manager: type=filetype
-     * You can add new file type
-     * Default: image, file
-     * */
-    'file_types' => [
-        'image' => [
-            /**
-             * Max file size upload for type=image (MB)
-             * Default: 15 MB
-             * */
-            'max_file_size' => 15, //MB
-            /**
-             * Mime Types file allowed upload for type=image
-             * Default: 15 MB
-             * */
-            'mimetypes' => [
-                'image/jpeg',
-                'image/pjpeg',
-                'image/png',
-                // ...
-            ]
-        ],
-        'file' => [
-            'max_file_size' => 1024, //MB
-            'mimetypes' => [
-                'image/jpeg',
-                'application/pdf',
-                // ...
-            ]
-        ],
-    ]
-];
-```
-
 ## Usage
 - [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
 - [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
@@ -143,6 +77,72 @@ FileManager::withResource($pathFile)
 ```
 $folder_id: Id lfm_folder_media table
 $type: image/file or customs your type
+```
+
+## Configs
+```
+<?php
+
+return [
+    /**
+     * Prefix route your file manager
+     * Default: file-manager
+     * */
+    'route_prefix' => env('LFM_PREFIX', 'file-manager'),
+    /**
+     * File system disk for upload by file-manager
+     * Default: public
+     * */
+    'upload_disk' => env('UPLOAD_DISK', 'public'),
+
+    /**
+     * File system disk for temps file
+     * Default: local
+     * */
+    'temp_disk' => env('TEMP_DISK', 'local'),
+
+    /**
+     * Optimizer image after upload by file manager
+     * You can install the necessary binaries to use
+     * Read more: https://github.com/spatie/image-optimizer/blob/master/README.md
+     *
+     * Default: false
+     * */
+    'image-optimizer' => false,
+
+    /**
+     * File type for file manager: type=filetype
+     * You can add new file type
+     * Default: image, file
+     * */
+    'file_types' => [
+        'image' => [
+            /**
+             * Max file size upload for type=image (MB)
+             * Default: 15 MB
+             * */
+            'max_file_size' => 15, //MB
+            /**
+             * Mime Types file allowed upload for type=image
+             * Default: 15 MB
+             * */
+            'mimetypes' => [
+                'image/jpeg',
+                'image/pjpeg',
+                'image/png',
+                // ...
+            ]
+        ],
+        'file' => [
+            'max_file_size' => 1024, //MB
+            'mimetypes' => [
+                'image/jpeg',
+                'application/pdf',
+                // ...
+            ]
+        ],
+    ]
+];
 ```
 
 ## Credits
