@@ -50,6 +50,8 @@ Route::group(['prefix' => 'file-manager', 'middleware' => ['web', 'auth']], func
 Add media with ``\Illuminate\Http\UploadedFile``
 
 ```
+use Theanh\FileManager\Facades\FileManager;
+
 FileManager::withResource(request()->file('upload_file'))
     ->setFolder($folder_id)
     ->setType($type)
@@ -59,6 +61,8 @@ FileManager::withResource(request()->file('upload_file'))
 Add media with url
 
 ```
+use Theanh\FileManager\Facades\FileManager;
+
 FileManager::withResource($urlFile)
     ->setFolder($folder_id)
     ->setType($type)
@@ -67,6 +71,8 @@ FileManager::withResource($urlFile)
 
 Add media with path
 ```
+use Theanh\FileManager\Facades\FileManager;
+
 FileManager::withResource($pathFile)
     ->setFolder($folder_id)
     ->setType($type)
