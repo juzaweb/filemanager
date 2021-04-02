@@ -2,7 +2,7 @@
 
 namespace Theanh\FileManager\Controllers;
 
-use Theanh\Lararepo\Controllers\Controller;
+use Theanh\Lararepo\Controller;
 
 class BaseController extends Controller
 {
