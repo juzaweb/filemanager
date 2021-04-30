@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'namespace' => '\Theanh\FileManager\Controllers'
+    'namespace' => '\Tadcms\FileManager\Controllers'
 ], function () {
     Route::get('/', 'FileController@index')->name('file-manager.index');
     

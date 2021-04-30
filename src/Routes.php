@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager;
+namespace Tadcms\FileManager;
 
 class Routes
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Contracts;
+namespace Tadcms\FileManager\Contracts;
 
 interface FileManagerContract
 {

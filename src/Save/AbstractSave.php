@@ -1,10 +1,10 @@
 <?php
 
-namespace Theanh\FileManager\Save;
+namespace Tadcms\FileManager\Save;
 
 use Illuminate\Http\UploadedFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Handler\AbstractHandler;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Handler\AbstractHandler;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**

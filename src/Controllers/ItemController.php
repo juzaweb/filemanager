@@ -1,10 +1,10 @@
 <?php
 
-namespace Theanh\FileManager\Controllers;
+namespace Tadcms\FileManager\Controllers;
 
-use Theanh\FileManager\Facades\FileManager;
-use Theanh\FileManager\Repositories\FolderMediaRepository;
-use Theanh\FileManager\Repositories\MediaRepository;
+use Tadcms\FileManager\Facades\FileManager;
+use Tadcms\FileManager\Repositories\FolderMediaRepository;
+use Tadcms\FileManager\Repositories\MediaRepository;
 
 class ItemController extends BaseController
 {
@@ -66,7 +66,7 @@ class ItemController extends BaseController
                     'time' => $row->created_at,
                     'type' => 'folder',
                     'icon' => 'fa-folder-o',
-                    'thumb' => asset('vendor/theanh/laravel-filemanager/images/folder.png'),
+                    'thumb' => asset('vendor/tadcms/laravel-filemanager/images/folder.png'),
                     'is_file' => false
                 ];
             }

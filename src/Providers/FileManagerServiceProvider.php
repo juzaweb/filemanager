@@ -1,18 +1,18 @@
 <?php
 
-namespace Theanh\FileManager\Providers;
+namespace Tadcms\FileManager\Providers;
 
-use Theanh\FileManager\Contracts\FileManagerContract;
-use Theanh\FileManager\Helpers\FileManager;
-use Theanh\FileManager\Repositories\MediaRepository;
+use Tadcms\FileManager\Contracts\FileManagerContract;
+use Tadcms\FileManager\Helpers\FileManager;
+use Tadcms\FileManager\Repositories\MediaRepository;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class Theanh\FileManager\Providers\FileManagerServiceProvider
+ * Class Tadcms\FileManager\Providers\FileManagerServiceProvider
  *
- * @package    Theanh\FileManager
+ * @package    Tadcms\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
- * @link       https://github.com/theanhk/laravel-filemanager
+ * @link       https://github.com/tadcms/laravel-filemanager
  * @license    MIT
  */
 class FileManagerServiceProvider extends ServiceProvider
@@ -27,7 +27,8 @@ class FileManagerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/file-manager.php', 'file-manager'
+            __DIR__ . '/../../config/file-manager.php',
+            'file-manager'
         );
     
         $this->app->singleton(FileManagerContract::class, function () {
@@ -44,11 +45,11 @@ class FileManagerServiceProvider extends ServiceProvider
         ], 'config');
         
         $this->publishes([
-            __DIR__.'/../../assets' => public_path('vendor/theanh/laravel-filemanager'),
+            __DIR__.'/../../assets' => public_path('vendor/tadcms/laravel-filemanager'),
         ], 'assets');
         
         $this->publishes([
-            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/theanh/laravel-filemanager'),
+            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/tadcms/laravel-filemanager'),
         ], 'lang');
     }
     

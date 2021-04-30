@@ -1,13 +1,13 @@
 <?php
 
-namespace Theanh\FileManager\Exceptions;
+namespace Tadcms\FileManager\Exceptions;
 
 /**
- * Class Theanh\FileManager\Exceptions\ChunkSaveException
+ * Class Tadcms\FileManager\Exceptions\ChunkSaveException
  *
- * @package    theanh/laravel-filemanager
+ * @package    tadcms/laravel-filemanager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
- * @link       https://github.com/theanhk/tadcms
+ * @link       https://github.com/tadcms/tadcms
  * @license    MIT
  */
 class ChunkSaveException extends \Exception

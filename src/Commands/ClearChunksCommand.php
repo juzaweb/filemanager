@@ -1,11 +1,11 @@
 <?php
 
-namespace Theanh\FileManager\Commands;
+namespace Tadcms\FileManager\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Theanh\FileManager\ChunkFile;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\ChunkFile;
+use Tadcms\FileManager\Storage\ChunkStorage;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ClearChunksCommand extends Command

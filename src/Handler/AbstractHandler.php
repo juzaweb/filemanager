@@ -1,12 +1,12 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Save\AbstractSave;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Save\AbstractSave;
+use Tadcms\FileManager\Storage\ChunkStorage;
 use Session;
 
 /**

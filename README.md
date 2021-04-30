@@ -15,13 +15,13 @@ The file manager intended for using Laravel with CKEditor / TinyMCE. File manage
 ## Install
 - Install package
 ```
-composer require theanh/laravel-filemanager
+composer require tadcms/filemanager
 ```
 
 - Publish the package’s config and assets:
 ```
-php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=config
-php artisan vendor:publish --provider="Theanh\FileManager\Providers\FileManagerServiceProvider" --tag=assets
+php artisan vendor:publish --provider="Tadcms\FileManager\Providers\FileManagerServiceProvider" --tag=config
+php artisan vendor:publish --provider="Tadcms\FileManager\Providers\FileManagerServiceProvider" --tag=assets
 ```
 - Migration
 ```
@@ -36,21 +36,21 @@ php artisan storage:link
 - Edit routes/web.php
 ```
 Route::group(['prefix' => 'file-manager', 'middleware' => ['web', 'auth']], function (){
-    \Theanh\FileManager\Routes::web();
+    \Tadcms\FileManager\Routes::web();
 });
 ```
 
 ## Usage
-- [Editor Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [Standalone Integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [JavaScript integration](https://github.com/theanhk/laravel-filemanager/blob/master/docs/javascript-integration.md)
+- [Editor Integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [Standalone Integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/usage-editor.md)
+- [JavaScript integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/javascript-integration.md)
 
 - Helper class
 
 Add media with ``\Illuminate\Http\UploadedFile``
 
 ```
-use Theanh\FileManager\Facades\FileManager;
+use Tadcms\FileManager\Facades\FileManager;
 
 FileManager::withResource(request()->file('upload_file'))
     ->setFolder($folder_id)
@@ -61,7 +61,7 @@ FileManager::withResource(request()->file('upload_file'))
 Add media with url
 
 ```
-use Theanh\FileManager\Facades\FileManager;
+use Tadcms\FileManager\Facades\FileManager;
 
 FileManager::withResource($urlFile)
     ->setFolder($folder_id)
@@ -71,7 +71,7 @@ FileManager::withResource($urlFile)
 
 Add media with path
 ```
-use Theanh\FileManager\Facades\FileManager;
+use Tadcms\FileManager\Facades\FileManager;
 
 FileManager::withResource($pathFile)
     ->setFolder($folder_id)

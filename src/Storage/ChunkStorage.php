@@ -1,14 +1,14 @@
 <?php
 
-namespace Theanh\FileManager\Storage;
+namespace Tadcms\FileManager\Storage;
 
 use Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Collection;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\FilesystemInterface;
-use Theanh\FileManager\ChunkFile;
-use Theanh\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\ChunkFile;
+use Tadcms\FileManager\Config\AbstractConfig;
 use RuntimeException;
 
 class ChunkStorage

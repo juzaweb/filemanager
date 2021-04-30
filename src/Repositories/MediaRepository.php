@@ -1,10 +1,10 @@
 <?php
 
-namespace Theanh\FileManager\Repositories;
+namespace Tadcms\FileManager\Repositories;
 
-use Theanh\FileManager\Facades\FileManager;
+use Tadcms\FileManager\Facades\FileManager;
 use Illuminate\Support\Facades\Auth;
-use Theanh\Lararepo\Repositories\EloquentRepository;
+use Tadcms\Lararepo\Repositories\EloquentRepository;
 
 class MediaRepository extends EloquentRepository
 {
@@ -15,7 +15,7 @@ class MediaRepository extends EloquentRepository
     
     public function model()
     {
-        return \Theanh\FileManager\Models\Media::class;
+        return \Tadcms\FileManager\Models\Media::class;
     }
     
     public function create(array $attributes)

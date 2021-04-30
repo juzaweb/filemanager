@@ -1,14 +1,14 @@
 <?php
 
-namespace Theanh\FileManager\Receiver;
+namespace Tadcms\FileManager\Receiver;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Exceptions\UploadFailedException;
-use Theanh\FileManager\Handler\AbstractHandler;
-use Theanh\FileManager\Save\AbstractSave;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Exceptions\UploadFailedException;
+use Tadcms\FileManager\Handler\AbstractHandler;
+use Tadcms\FileManager\Save\AbstractSave;
+use Tadcms\FileManager\Storage\ChunkStorage;
 
 class FileReceiver
 {

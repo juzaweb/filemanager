@@ -1,8 +1,8 @@
 <?php
 
-namespace Theanh\FileManager\Controllers;
+namespace Tadcms\FileManager\Controllers;
 
-use Theanh\Lararepo\Controller;
+use Tadcms\Lararepo\Controller;
 
 class BaseController extends Controller
 {

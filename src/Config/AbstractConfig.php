@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Config;
+namespace Tadcms\FileManager\Config;
 
 abstract class AbstractConfig
 {

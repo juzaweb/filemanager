@@ -1,8 +1,8 @@
 <?php
 
-namespace Theanh\FileManager;
+namespace Tadcms\FileManager;
 
-use Theanh\FileManager\Exceptions\ChunkSaveException;
+use Tadcms\FileManager\Exceptions\ChunkSaveException;
 
 class FileMerger
 {

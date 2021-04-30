@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Models;
+namespace Tadcms\FileManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,17 +15,18 @@ class FolderMedia extends Model
         'user_model',
     ];
     
-    public function parent() {
-        return $this->belongsTo('FileManager\Models\FolderMedia', 'parent_id', 'id');
+    public function parent()
+    {
+        return $this->belongsTo('Tadcms\FileManager\Models\FolderMedia', 'parent_id', 'id');
     }
     
     public function childs()
     {
-        return $this->hasMany('FileManager\Models\FolderMedia', 'parent_id', 'id');
+        return $this->hasMany('Tadcms\FileManager\Models\FolderMedia', 'parent_id', 'id');
     }
     
     public function files()
     {
-        return $this->hasMany('FileManager\Models\Media', 'folder_id', 'id');
+        return $this->hasMany('Tadcms\FileManager\Models\Media', 'folder_id', 'id');
     }
 }

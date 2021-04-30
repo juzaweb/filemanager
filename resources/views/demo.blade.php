@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo File Manager</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/theanh/laravel-filemanager/images/folder.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/tadcms/laravel-filemanager/images/folder.png') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
@@ -128,7 +128,7 @@
         prefix: "{{ config('file-manager.route_prefix') }}",
     };
 </script>
-<script src="{{ asset('vendor/theanh/laravel-filemanager/js/lfm.js') }}"></script>
+<script src="{{ asset('vendor/tadcms/laravel-filemanager/js/lfm.js') }}"></script>
 <script>
     $('#lfm').filemanager('image', {
         'input': 'thumbnail',

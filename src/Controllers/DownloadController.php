@@ -1,10 +1,10 @@
 <?php
 
-namespace Theanh\FileManager\Controllers;
+namespace Tadcms\FileManager\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Theanh\FileManager\Models\Media;
+use Tadcms\FileManager\Models\Media;
 
 class DownloadController extends BaseController
 {

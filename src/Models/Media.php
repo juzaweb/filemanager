@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Models;
+namespace Tadcms\FileManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

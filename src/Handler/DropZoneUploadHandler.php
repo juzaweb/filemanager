@@ -1,11 +1,11 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Handler\Traits\HandleParallelUploadTrait;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Handler\Traits\HandleParallelUploadTrait;
 
 class DropZoneUploadHandler extends ChunksInRequestUploadHandler
 {

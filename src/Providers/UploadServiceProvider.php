@@ -1,23 +1,23 @@
 <?php
 
-namespace Theanh\FileManager\Providers;
+namespace Tadcms\FileManager\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Config\UploadConfig;
-use Theanh\FileManager\Handler\HandlerFactory;
-use Theanh\FileManager\Receiver\FileReceiver;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Config\UploadConfig;
+use Tadcms\FileManager\Handler\HandlerFactory;
+use Tadcms\FileManager\Receiver\FileReceiver;
+use Tadcms\FileManager\Storage\ChunkStorage;
 
 /**
- * Class Theanh\FileManager\Providers\ChunkUploadServiceProvider
+ * Class Tadcms\FileManager\Providers\ChunkUploadServiceProvider
  *
- * @package    Theanh\FileManager
+ * @package    Tadcms\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
- * @link       https://github.com/theanhk/tadcms
+ * @link       https://github.com/tadcms/tadcms
  * @license    MIT
  */
 class UploadServiceProvider extends ServiceProvider

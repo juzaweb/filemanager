@@ -1,9 +1,9 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
 use Illuminate\Http\Request;
-use Theanh\FileManager\Exceptions\ChunkInvalidValueException;
+use Tadcms\FileManager\Exceptions\ChunkInvalidValueException;
 
 /**
  * Class NgFileUploadHandler.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Theanh\FileManager\Controllers;
+namespace Tadcms\FileManager\Controllers;
 
-use Theanh\FileManager\Repositories\MediaRepository;
+use Tadcms\FileManager\Repositories\MediaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

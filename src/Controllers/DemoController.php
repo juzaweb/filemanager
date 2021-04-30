@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Controllers;
+namespace Tadcms\FileManager\Controllers;
 
 class DemoController extends BaseController
 {

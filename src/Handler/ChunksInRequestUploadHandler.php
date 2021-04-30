@@ -1,13 +1,13 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Exceptions\ChunkSaveException;
-use Theanh\FileManager\Save\ChunkSave;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Exceptions\ChunkSaveException;
+use Tadcms\FileManager\Save\ChunkSave;
+use Tadcms\FileManager\Storage\ChunkStorage;
 
 /**
  * Class ChunksInRequestUploadHandler.

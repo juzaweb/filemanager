@@ -1,17 +1,17 @@
 <?php
 
-namespace Theanh\FileManager\Save;
+namespace Tadcms\FileManager\Save;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
-use Theanh\FileManager\ChunkFile;
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Exceptions\ChunkSaveException;
-use Theanh\FileManager\Exceptions\MissingChunkFilesException;
-use Theanh\FileManager\FileMerger;
-use Theanh\FileManager\Handler\AbstractHandler;
-use Theanh\FileManager\Handler\Traits\HandleParallelUploadTrait;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\ChunkFile;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Exceptions\ChunkSaveException;
+use Tadcms\FileManager\Exceptions\MissingChunkFilesException;
+use Tadcms\FileManager\FileMerger;
+use Tadcms\FileManager\Handler\AbstractHandler;
+use Tadcms\FileManager\Handler\Traits\HandleParallelUploadTrait;
+use Tadcms\FileManager\Storage\ChunkStorage;
 
 /**
  * Class ParallelSave.

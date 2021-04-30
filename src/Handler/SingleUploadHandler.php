@@ -1,10 +1,10 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
-use Theanh\FileManager\Config\AbstractConfig;
-use Theanh\FileManager\Save\SingleSave;
-use Theanh\FileManager\Storage\ChunkStorage;
+use Tadcms\FileManager\Config\AbstractConfig;
+use Tadcms\FileManager\Save\SingleSave;
+use Tadcms\FileManager\Storage\ChunkStorage;
 
 /**
  * Class SingleUploadHandler.

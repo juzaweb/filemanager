@@ -1,6 +1,6 @@
 <?php
 
-namespace Theanh\FileManager\Handler;
+namespace Tadcms\FileManager\Handler;
 
 use Illuminate\Http\Request;
 
