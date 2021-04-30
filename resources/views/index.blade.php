@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ trans('filemanager::file-manager.title-page') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('vendor/tadcms/laravel-filemanager/images/folder.png') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/tadcms/laravel-filemanager/css/file-manager.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('tadcms/filemanager/images/folder.png') }}">
+    <link rel="stylesheet" href="{{ asset('tadcms/filemanager/css/file-manager.css') }}">
 </head>
 <body>
 <div class="container-fluid" id="wrapper">
@@ -157,7 +157,7 @@
 </div>
 
 <div id="lfm-loader">
-    <img src="{{ asset('vendor/tadcms/laravel-filemanager/images/loader.svg') }}" />
+    <img src="{{ asset('tadcms/filemanager/images/loader.svg') }}" />
 </div>
 
 <script>
@@ -165,7 +165,7 @@
     var lang = JSON.parse('{!! json_encode(trans('filemanager::file-manager')) !!}');
     var _token = '{{ csrf_token() }}';
 </script>
-<script src="{{ asset('vendor/tadcms/laravel-filemanager/js/file-manager.js') }}"></script>
+<script src="{{ asset('tadcms/filemanager/js/file-manager.js') }}"></script>
 
 <script type="text/javascript">
     $.fn.fab = function () {

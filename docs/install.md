@@ -1,6 +1,6 @@
 - Install package
 ```
-composer require tadcms/laravel-filemanager
+composer require tadcms/filemanager
 ```
 
 - Publish the package’s config and assets:

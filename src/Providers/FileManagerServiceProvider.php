@@ -12,7 +12,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package    Tadcms\FileManager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
- * @link       https://github.com/tadcms/laravel-filemanager
+ * @link       https://github.com/tadcms/filemanager
  * @license    MIT
  */
 class FileManagerServiceProvider extends ServiceProvider
@@ -45,11 +45,11 @@ class FileManagerServiceProvider extends ServiceProvider
         ], 'config');
         
         $this->publishes([
-            __DIR__.'/../../assets' => public_path('vendor/tadcms/laravel-filemanager'),
+            __DIR__.'/../../assets' => public_path('tadcms/filemanager'),
         ], 'assets');
         
         $this->publishes([
-            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/tadcms/laravel-filemanager'),
+            __DIR__.'/../../resources/lang' => resource_path('lang/tadcms/filemanager'),
         ], 'lang');
     }
     

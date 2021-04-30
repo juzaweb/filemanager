@@ -6,7 +6,7 @@
         prefix: "{{ config('file-manager.route_prefix') }}",
     };
 </script>
-<script src="{{ asset('vendor/tadcms/laravel-filemanager/js/lfm.js') }}"></script>
+<script src="{{ asset('tadcms/filemanager/js/lfm.js') }}"></script>
 ```
 
 - Create a button, input, and image preview holder if you are going to choose images. Add class ``file-manager`` to button choose file. Specify the id to the input and image preview by ``data-input`` and ``data-preview``.

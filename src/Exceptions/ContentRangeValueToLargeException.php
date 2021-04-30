@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class Tadcms\FileManager\Exceptions\ContentRangeValueToLargeException
  *
- * @package    tadcms/laravel-filemanager
+ * @package    tadcms/filemanager
  * @author     The Anh Dang <dangtheanh16@gmail.com>
  * @link       https://github.com/tadcms/tadcms
  * @license    MIT

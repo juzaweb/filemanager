@@ -22,7 +22,7 @@ CKEDITOR.replace('my-editor', options);
 - Sample 2 - With JQuery Selector:
 ```
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script src="/vendor/tadcms/laravel-ckeditor/adapters/jquery.js"></script>
 <script>
 $('textarea.my-editor').ckeditor(options);
 </script>

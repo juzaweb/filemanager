@@ -41,9 +41,9 @@ Route::group(['prefix' => 'file-manager', 'middleware' => ['web', 'auth']], func
 ```
 
 ## Usage
-- [Editor Integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [Standalone Integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/usage-editor.md)
-- [JavaScript integration](https://github.com/tadcms/laravel-filemanager/blob/master/docs/javascript-integration.md)
+- [Editor Integration](https://github.com/tadcms/filemanager/blob/master/docs/usage-editor.md)
+- [Standalone Integration](https://github.com/tadcms/filemanager/blob/master/docs/usage-editor.md)
+- [JavaScript integration](https://github.com/tadcms/filemanager/blob/master/docs/javascript-integration.md)
 
 - Helper class
 

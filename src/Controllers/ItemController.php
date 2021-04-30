@@ -66,7 +66,7 @@ class ItemController extends BaseController
                     'time' => $row->created_at,
                     'type' => 'folder',
                     'icon' => 'fa-folder-o',
-                    'thumb' => asset('vendor/tadcms/laravel-filemanager/images/folder.png'),
+                    'thumb' => asset('tadcms/filemanager/images/folder.png'),
                     'is_file' => false
                 ];
             }
