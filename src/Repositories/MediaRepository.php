@@ -4,9 +4,9 @@ namespace Tadcms\FileManager\Repositories;
 
 use Tadcms\FileManager\Facades\FileManager;
 use Illuminate\Support\Facades\Auth;
-use Tadcms\Lararepo\Repositories\EloquentRepository;
+use Tadcms\Repository\Eloquent\BaseRepository;
 
-class MediaRepository extends EloquentRepository
+class MediaRepository extends BaseRepository
 {
     /**
      * @var \Illuminate\Database\Eloquent\Builder $_model;
@@ -28,7 +28,7 @@ class MediaRepository extends EloquentRepository
         return parent::create($attributes);
     }
     
-    public function update($id, array $attributes)
+    public function update(array $attributes, $id)
     {
         if (Auth::check()) {
             $attributes['user_id'] = Auth::id();

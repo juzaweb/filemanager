@@ -85,9 +85,14 @@ class FolderController extends BaseController
         $isFile = $request->post('is_file');
         
         if (!$isFile){
-            DB::transaction(function () use ($id) {
+            DB::beginTransaction();
+            try {
                 $this->folderRepository->delete($id);
-            });
+                DB::commit();
+            } catch (\Exception $exception) {
+                DB::rollBack();
+                throw $exception;
+            }
         }
     
         return 'OK';

@@ -3,23 +3,14 @@
 namespace Tadcms\FileManager\Repositories;
 
 use Illuminate\Support\Facades\Auth;
-use Tadcms\Lararepo\Repositories\EloquentRepository;
+use Tadcms\Repository\Eloquent\BaseRepository;
 
-class FolderMediaRepository extends EloquentRepository
+class FolderMediaRepository extends BaseRepository
 {
     /**
      * @var \Tadcms\FileManager\Models\FolderMedia $model
      * */
     protected $model;
-    
-    protected $mediaRepository;
-    
-    public function __construct(MediaRepository $mediaRepository)
-    {
-        parent::__construct();
-        
-        $this->mediaRepository = $mediaRepository;
-    }
     
     public function model()
     {
@@ -36,7 +27,7 @@ class FolderMediaRepository extends EloquentRepository
         return parent::create($attributes);
     }
     
-    public function update($id, array $attributes)
+    public function update(array $attributes, $id)
     {
         if (Auth::check()) {
             $attributes['user_id'] = Auth::id();
@@ -45,21 +36,21 @@ class FolderMediaRepository extends EloquentRepository
         
         return parent::update($id, $attributes);
     }
-    
+
     public function delete($id)
     {
+        $mediaRepository = $this->app->make(MediaRepository::class);
         $files = $this->getAllFiles($id);
         foreach ($files as $file) {
-            $this->mediaRepository->delete($file);
+            $mediaRepository->delete($file->id);
         }
-        
+
         return parent::delete($id);
     }
     
     public function getAllFiles($folder)
     {
-        $folder = is_numeric($folder) ? $this->find($folder) :
-            $folder;
+        $folder = $this->find($folder);
         
         return $folder->files()->get();
     }

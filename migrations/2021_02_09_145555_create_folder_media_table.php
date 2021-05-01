@@ -8,7 +8,7 @@ class CreateFolderMediaTable extends Migration
 {
     public function up()
     {
-        Schema::create('lfm_folder_media', function (Blueprint $table) {
+        Schema::create('folder_media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('type', 50)->index();
@@ -21,6 +21,6 @@ class CreateFolderMediaTable extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('lfm_folder_media');
+        Schema::dropIfExists('folder_media');
     }
 }

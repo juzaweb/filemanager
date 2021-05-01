@@ -2,7 +2,7 @@
 
 namespace Tadcms\FileManager\Controllers;
 
-use Tadcms\Lararepo\Controller;
+use Tadcms\System\Controllers\Controller;
 
 class BaseController extends Controller
 {
