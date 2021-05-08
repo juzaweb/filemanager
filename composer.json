@@ -1,6 +1,5 @@
 {
     "name": "tadcms/filemanager",
-    "version": "1.0.2",
     "description": "The file manager intended for using Laravel with CKEditor / TinyMCE. File manager in table database, do not browse on the server folder.",
     "keywords": [
         "laravel filemanager",
